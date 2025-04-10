@@ -1,0 +1,19 @@
+https://zenquotes.io/api/quotes - Generate a JSON array of 50 random quotes on each request
+https://zenquotes.io/api/today - Generate the quote of the day on each request
+https://zenquotes.io/api/random - Generate a random quote on each request
+https://zenquotes.io/api/image - Generate a random inspirational image on each request
+
+Daily Dose Quotes
+
+Navbar
+Home
+Random Quote
+Quote of the Day
+About / info
+
+
+q - quotes
+a - author name
+i - author images
+c - character count
+h = pre-formatted HTML quote
