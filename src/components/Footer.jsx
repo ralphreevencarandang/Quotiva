@@ -5,7 +5,7 @@ const Footer = ()=>{
 
     return(
         <section className="max-container padding-x py-10 ">
-                <footer className="text-center ">
+                <footer className="text-center  ">
                     <div className="flex justify-center gap-4 py-4">
 
                         <Link to='https://www.facebook.com/aint.arar999'>

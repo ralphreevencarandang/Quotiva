@@ -1,29 +1,33 @@
 
 import Card from "../components/Card";
-import Header from "../components/Header";
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
+import axios from '../axios';
+
 const Quotes = ()=>{
-
     const [quoteList,setQuoteList] = useState([]);
-    const api_url ="https://zenquotes.io/api/quotes/";
+    const [quoteOfDay, setQuoteOfDay] = useState("");
 
-    // useEffect(()=>{
-    //     fetchQuotes();
+    useEffect(()=>{
+        fetchQuotes();
         
+    },[]);
 
-    // },[]);
-
-    // const fetchQuotes = async () => {
-    //     try {
-    //       const response = await fetch("https://zenquotes.io/api/today ");
-    //       const data = await response.json();
-    //       console.log(data); // Do something with the quotes
-    //     } catch (error) {
-    //       console.error("Error fetching quotes:", error);
-    //     }
-    //   };
+    const fetchQuotes = async () => {
+        try {
+          const response = await fetch('https://api.api-ninjas.com/v1/quotes', {
+            method: 'GET',
+            headers:{
+                'X-Api-Key': 'mlr1r+Sy/24nlro4NsgXiQ==9TdBlhXt8TAzyua8'
+            }
+          });
+          const data = await response.json();
+          console.log(data[0]);
+   
+        } catch (error) {
+          console.error("Error fetching quotes:", error);
+        }
+      };
       
 
 
