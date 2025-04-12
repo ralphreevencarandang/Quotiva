@@ -20,7 +20,7 @@ const Footer = ()=>{
                             <FaLinkedin className="text-3xl text-blue-700 hover:text-blue-600"/>
                         </Link>
                     </div>
-                    <p>© 2025 Lilac. All rights reserved.</p>
+                    <p>© 2025 Arar. All rights reserved.</p>
                 </footer>
         </section>
     );
