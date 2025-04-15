@@ -47,25 +47,25 @@ const Quotes = ()=>{
 
               <div className="overflow-hidden border-1 shadow-2xl border-slate-200 rounded-lg">
                     <div className="flex gap-5 animate-infinite-scroll-left whitespace-nowrap pt-5">
+                        {/* <Card/>
                         <Card/>
                         <Card/>
                         <Card/>
                         <Card/>
                         <Card/>
                         <Card/>
-                        <Card/>
-                        <Card/>
+                        <Card/> */}
                     </div>
 
                     <div className="flex gap-5 animate-infinite-scroll-right whitespace-nowrap py-5">
+                        {/* <Card/>
                         <Card/>
                         <Card/>
                         <Card/>
                         <Card/>
                         <Card/>
                         <Card/>
-                        <Card/>
-                        <Card/>
+                        <Card/> */}
                     </div>
 
                 </div>
