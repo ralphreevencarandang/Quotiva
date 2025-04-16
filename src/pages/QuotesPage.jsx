@@ -35,6 +35,7 @@ const QuotesPage = () => {
     }
     
     const fetchQuotes = async ()=>{
+        setLoading(true)
         try{
             const response = await axios.get('/quotes');
             const parsedQuotes = JSON.parse(response.data.contents);
@@ -43,6 +44,8 @@ const QuotesPage = () => {
         }catch(error){
             console.log(error)
             setErrorMessage(error)
+        }finally{
+            setLoading(false);
         }
     }; 
 
