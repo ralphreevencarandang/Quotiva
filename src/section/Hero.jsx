@@ -9,10 +9,8 @@ const Hero = ()=>{
     const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(()=>{
-        fetchQuotesToday();
-    },[]);
 
-    const fetchQuotesToday = async () => {
+      const fetchQuotesToday = async () => {
         try {
           const response = await axios.get('/today');
           console.log(response)
@@ -26,6 +24,11 @@ const Hero = ()=>{
             setLoading(false);
         }
       };
+
+        fetchQuotesToday();
+    },[]);
+
+    
       
     return(
         <section className="max-container padding-x  grid grid-cols-1 place-items-center pt-10">

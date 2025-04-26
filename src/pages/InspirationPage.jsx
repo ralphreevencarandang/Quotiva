@@ -7,7 +7,7 @@ import React from 'react';
 const Inspiration = ()=>{
     const [inspiration, setInspiration ] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
         fetchInspiration();
@@ -34,7 +34,6 @@ const Inspiration = ()=>{
     return (
         <section className="max-container padding-x grid grid-cols-1  justify-items-center">
             <h1 className='text-4xl font-reenie py-10 sm:text-6xl'>Insiprational Image</h1>
-
             <div className='  w-[100%] sm:w-[70%] grid grid-cols-1 place-items-center'>
                 {loading ? (
                     <Spinner/>
@@ -48,5 +47,4 @@ const Inspiration = ()=>{
         </section>
     );
 }
-
 export default Inspiration;

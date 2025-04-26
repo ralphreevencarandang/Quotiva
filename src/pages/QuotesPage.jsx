@@ -12,16 +12,11 @@ const QuotesPage = () => {
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
 
-
-    useEffect(()=>{
-        fetchRandomQuotes();
-         fetchQuotes();
-    }, []);
-
     const fetchRandomQuotes = async ()=>{
         setLoading(true);
         try {
-                const response = await axios.get('/random');
+                 const cacheBuster = Math.random();
+                const response = await axios.get(`/random&cache=false&cb=${cacheBuster}`);
                 console.log(response.data.contents);
                 const parsedQuotes = JSON.parse(response.data.contents);
                 console.log(parsedQuotes)
@@ -33,11 +28,12 @@ const QuotesPage = () => {
             setLoading(false)
         }
     }
-    
+
     const fetchQuotes = async ()=>{
         setLoading(true)
         try{
-            const response = await axios.get('/quotes');
+            const cacheBuster = Math.random();
+            const response = await axios.get(`/quotes&cache=false&cb=${cacheBuster}`);
             const parsedQuotes = JSON.parse(response.data.contents);
             console.log(parsedQuotes)
             setQuotes(parsedQuotes);
@@ -49,47 +45,46 @@ const QuotesPage = () => {
         }
     }; 
 
-    function generateRandomQuotes (){
+        useEffect(()=>{
+               
+                fetchQuotes();
+                fetchRandomQuotes();
+
+        }, []);
+    const  generateRandomQuotes = () => {
         fetchRandomQuotes();
         console.log(randomQuotes)
- 
     }
 
-    
-
-
-  return (
+return (
     <>
-        
                 <section className="max-container padding-x  grid grid-cols-1 place-items-center pt-20 ">
                     <div className=" max-w-[600px] place-items-center">
                         {loading ? (
                             <Spinner/>
                         ) : (errorMessage ? 
                             <p>{errorMessage}</p> :
-                         <div>
-                                <h1 className="text-center text-3xl font-reenie sm:text-6xl">
-                                "{randomQuotes.q}"
-                                </h1>
-                                <p className="text-subtext py-5 text-lg text-center">
-                                    {randomQuotes.a}
-                                </p>
-                         </div>
-                         )}
-                          <div className="w-full sm:place-items-center">
-                                    <Button label="Generate Quotes" onClick={generateRandomQuotes} />
-                        </div>
+                            <div>
+                                    <h1 className="text-center text-3xl font-reenie sm:text-6xl">
+                                    "{randomQuotes.q}"
+                                    </h1>
+                                    <p className="text-subtext py-5 text-lg text-center">
+                                        {randomQuotes.a}
+                                    </p>
+                            </div>
+                        )}
+                            <div className="w-full sm:place-items-center">
+                                        <Button label="Generate Quotes" onClick={generateRandomQuotes} />
+                            </div>
                         
                     </div>
 
                     <section className="max-container  pt-20">
-    
-
                         {loading ? (
                             <Spinner/>
-                           ) : 
+                            ) : 
                             <div>
-                                 <button>
+                                <button>
                                     <img src='src/assets/icons/refresh.svg' alt="refresh" width={30} className="m-5 cursor-pointer hover:scale-125 transition ease-out duration-500" onClick={()=>{fetchQuotes()}}/>
                                 </button>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -98,7 +93,7 @@ const QuotesPage = () => {
                                     )}                             
                                 </div>
                             </div>
-                           }                   
+                        }                   
                     </section>
                 </section>
         

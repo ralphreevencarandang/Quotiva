@@ -40,9 +40,8 @@ const Quotes = ()=>{
                        <Card key={index} quote={quote}/>
                     )}
                     </div>
-
                     <div className="flex gap-5 animate-infinite-scroll-right whitespace-nowrap py-5">
-                      {quoteList.map((quote, index) =>
+                    {quoteList.slice().reverse().map((quote, index) =>
                         <Card key={index} quote={quote}/>
                       )}
                     </div>
